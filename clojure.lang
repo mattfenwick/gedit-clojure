@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<language id="clojure" _name="Clojure" version="2.0" _section="Sources">
+  <metadata>
+    <property name="mimetypes">text/x-clojure;application/x-clojure</property> <!-- not sure about these -->
+    <property name="globs">*.clj</property>
+    <property name="line-comment-start">;</property>
+  </metadata>
+
+  <styles>
+    <style id="comment"           _name="Comment"               map-to="def:comment"/>
+    <style id="module-handler"    _name="Module Handler"        map-to="def:preprocessor"/>
+    <style id="keyword"           _name="Keyword"               map-to="def:keyword"/>
+    <style id="multiline-string"  _name="Multiline string"      map-to="def:string"/>
+    <style id="builtin-constant"  _name="Builtin Constant"      map-to="def:special-constant"/>
+    <style id="builtin-function"  _name="Builtin Function"      map-to="def:builtin"/>
+  </styles>
+
+  <definitions>
+    <context id="line-comment" style-ref="comment" end-at-line-end="true">
+      <start>;</start>
+      <include>
+        <context ref="def:in-comment"/>
+      </include>
+    </context>
+
+    <context id="multiline-string" style-ref="multiline-string">
+      <start>"</start>
+      <end>"</end>
+<!--      <include> -->
+<!--        <context ref="escaped-char"/> TODO reactivate -->
+    <!--  </include> -->
+    </context>
+
+    <context id="clojure">
+      <include>
+        <context ref="multiline-string"/>
+
+	<context ref="line-comment"/>
+
+        <context id="module-handler" style-ref="module-handler">
+          <keyword>ns</keyword>
+          <keyword>use</keyword>
+          <keyword>require</keyword>
+        </context>
+
+        <context id="reserved" style-ref="keyword">
+          <keyword>true</keyword>
+          <keyword>false</keyword>
+          <keyword>nil</keyword>
+        </context>
+
+        <context id="special" style-ref="builtin-constant">
+<!--          <prefix>(?&lt;![\w\.])</prefix> -->
+          <keyword>def</keyword>
+          <keyword>if</keyword>
+	  <!-- also let*, fn* ... but they may need escaping b/c of the * -->
+        </context>
+
+        <context id="builtin-macro" style-ref="builtin-function">
+          <keyword>defn</keyword>
+          <keyword>fn</keyword>
+          <keyword>let</keyword>
+          <keyword>loop</keyword>
+        </context>
+
+        <context id="builtin-function" style-ref="builtin-function">
+          <keyword>type</keyword>
+          <keyword>apply</keyword>
+          <keyword>str</keyword>
+	  <!-- also + -->
+        </context>
+
+      </include>
+    </context>
+  </definitions>
+</language>
+
