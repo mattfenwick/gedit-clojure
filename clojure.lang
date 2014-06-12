@@ -11,9 +11,11 @@
     <style id="comment"           _name="Comment"               map-to="def:comment"/>
     <style id="module-handler"    _name="Module Handler"        map-to="def:preprocessor"/>
     <style id="keyword"           _name="Keyword"               map-to="def:keyword"/>
+    <style id="escaped-char"      _name="Escaped Character"     map-to="def:special-char"/>
     <style id="multiline-string"  _name="Multiline string"      map-to="def:string"/>
     <style id="builtin-constant"  _name="Builtin Constant"      map-to="def:special-constant"/>
     <style id="builtin-function"  _name="Builtin Function"      map-to="def:builtin"/>
+    <style id="clj-ident"         _name="Identifier"            map-to="def:identifier"/>
   </styles>
 
   <definitions>
@@ -24,12 +26,22 @@
       </include>
     </context>
 
+    <context id="escaped-char" style-ref="escaped-char" extend-parent="true">
+      <match extended="true">
+        \\(                 # open
+        [\\"btnfr]        | # simple
+        u[0-9A-Fa-f]{4}   | # 16-bit hex value
+        [0-7]{1,3}          # octal
+        )
+      </match>
+    </context>
+
     <context id="multiline-string" style-ref="multiline-string">
       <start>"</start>
       <end>"</end>
-<!--      <include> -->
-<!--        <context ref="escaped-char"/> TODO reactivate -->
-    <!--  </include> -->
+      <include>
+        <context ref="escaped-char"/>
+      </include>
     </context>
 
     <context id="clojure">
@@ -39,25 +51,34 @@
 	<context ref="line-comment"/>
 
         <context id="module-handler" style-ref="module-handler">
+          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>ns</keyword>
           <keyword>use</keyword>
           <keyword>require</keyword>
         </context>
 
         <context id="reserved" style-ref="keyword">
+          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>true</keyword>
           <keyword>false</keyword>
           <keyword>nil</keyword>
         </context>
 
         <context id="special" style-ref="builtin-constant">
-<!--          <prefix>(?&lt;![\w\.])</prefix> -->
+          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>def</keyword>
           <keyword>if</keyword>
-	  <!-- also let*, fn* ... but they may need escaping b/c of the * -->
+	  <keyword>let\*</keyword>
+	  <keyword>loop\*</keyword>
+	  <keyword>fn\*</keyword>
         </context>
 
         <context id="builtin-macro" style-ref="builtin-function">
+          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>defn</keyword>
           <keyword>fn</keyword>
           <keyword>let</keyword>
@@ -65,10 +86,24 @@
         </context>
 
         <context id="builtin-function" style-ref="builtin-function">
+          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>type</keyword>
           <keyword>apply</keyword>
           <keyword>str</keyword>
 	  <!-- also + -->
+        </context>
+
+	<context id="clj-keyword" style-ref="keyword">
+	  <prefix>:</prefix>
+	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+	  <keyword>[^\s\[\]\{\}\(\);\\"@~`\^,']+</keyword>
+	</context>
+
+	<context id="clj-ident" style-ref="clj-ident">
+          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+	  <keyword>[^\s,";@\^`~\(\)\[\]\{\}\\'#][^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
         </context>
 
       </include>
