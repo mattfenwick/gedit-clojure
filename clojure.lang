@@ -48,11 +48,11 @@
       <include>
         <context ref="multiline-string"/>
 
-	<context ref="line-comment"/>
+        <context ref="line-comment"/>
 
         <context id="module-handler" style-ref="module-handler">
           <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>ns</keyword>
           <keyword>use</keyword>
           <keyword>require</keyword>
@@ -60,7 +60,7 @@
 
         <context id="reserved" style-ref="keyword">
           <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>true</keyword>
           <keyword>false</keyword>
           <keyword>nil</keyword>
@@ -68,17 +68,17 @@
 
         <context id="special" style-ref="builtin-constant">
           <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>def</keyword>
           <keyword>if</keyword>
-	  <keyword>let\*</keyword>
-	  <keyword>loop\*</keyword>
-	  <keyword>fn\*</keyword>
+          <keyword>let\*</keyword>
+          <keyword>loop\*</keyword>
+          <keyword>fn\*</keyword>
         </context>
 
         <context id="builtin-macro" style-ref="builtin-function">
           <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>defn</keyword>
           <keyword>fn</keyword>
           <keyword>let</keyword>
@@ -87,23 +87,23 @@
 
         <context id="builtin-function" style-ref="builtin-function">
           <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>type</keyword>
           <keyword>apply</keyword>
           <keyword>str</keyword>
-	  <!-- also + -->
+      <!-- also + -->
         </context>
 
-	<context id="clj-keyword" style-ref="keyword">
-	  <prefix>:</prefix>
-	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-	  <keyword>[^\s\[\]\{\}\(\);\\"@~`\^,']+</keyword>
-	</context>
+        <context id="clj-keyword" style-ref="keyword">
+          <prefix>:</prefix>
+          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+          <keyword>[^\s\[\]\{\}\(\);\\"@~`\^,']+</keyword>
+        </context>
 
-	<context id="clj-ident" style-ref="clj-ident">
+        <context id="clj-ident" style-ref="clj-ident">
           <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-	      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-	  <keyword>[^\s,";@\^`~\(\)\[\]\{\}\\'#][^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
+          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+          <keyword>[^\s,";@\^`~\(\)\[\]\{\}\\'#][^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
         </context>
 
       </include>
