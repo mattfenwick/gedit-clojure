@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<language id="closure" _name="Closure" version="2.0" _section="Sources">
+  <metadata>
+    <property name="mimetypes">text/x-clojure;application/x-clojure</property>
+    <property name="globs">*.clj</property>
+    <property name="line-comment-start">;</property>
+  </metadata>
+
+  <styles> <!-- these styles are chosen purely for their colors -->
+    <style id="comment"         _name="Comment"             map-to="def:comment"/>
+
+    <style id="clj-string"      _name="String"              map-to="def:string"/>
+    <style id="string-escape"   _name="String escape"       map-to="def:special-char"/>
+
+    <style id="clj-number"      _name="Number"              map-to="def:special-constant"/>
+    <style id="clj-char"        _name="Character"           map-to="def:constant"/>
+    <style id="clj-symbol"      _name="Symbol"              map-to="def:keyword"/>
+    <style id="clj-keyword"     _name="Keyword"             map-to="def:special-constant"/>
+
+    <style id="clj-regex"       _name="Regex"               map-to="def:string"/>
+    <style id="regex-escape"    _name="Regex escape"        map-to="def:special-char"/>
+  </styles>
+
+  <definitions>
+    <context id="line-comment" style-ref="comment" end-at-line-end="true">
+      <start>;</start>
+      <include>
+        <context ref="def:in-comment"/>
+      </include>
+    </context>
+
+    <context id="clj-string" style-ref="clj-string">
+      <start>"</start>
+      <end>"</end>
+      <include>
+        <context id="string-escape" style-ref="string-escape" extend-parent="true">
+          <match extended="true">
+            \\(                 # open
+            [\\"btnfr]        | # simple
+            u[0-9A-Fa-f]{4}   | # 16-bit hex value
+            [0-7]{1,3}          # octal
+            )
+          </match>
+        </context>
+      </include>
+    </context>
+
+    <!-- the follow restrictions seem to be unnecessary since there's no possibility of ambiguity -->
+
+    <context id="clj-number" style-ref="clj-number">
+      <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+<!--      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix> -->
+      <keyword>\d[^\s\[\]\{\}\(\);\\"@~`\^,'%#]*</keyword>
+    </context>
+
+    <context id="clj-char" style-ref="clj-char">
+      <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+      <keyword>\\[^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
+    </context>
+
+    <context id="clj-symbol" style-ref="clj-symbol">
+      <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+      <keyword>[^\d\s,";@\^`~\(\)\[\]\{\}\\'#][^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
+    </context>
+
+    <context id="clj-keyword" style-ref="clj-keyword">
+      <prefix>:</prefix>
+      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+      <keyword>[^\s\[\]\{\}\(\);\\"@~`\^,']+</keyword>
+    </context>
+
+    <context id="clj-regex" style-ref="clj-regex">
+      <start>#"</start>
+      <end>"</end>
+      <include>
+        <context id="regex-escape" style-ref="regex-escape" extend-parent="true">
+          <match extended="true">
+            \\(          # open
+            [\\"]        # just \ or " (ignoring internal syntax of regex)
+            )
+          </match>
+        </context>
+      </include>
+    </context>
+
+
+    <context id="closure">
+      <include>
+        <context ref="line-comment"/>
+        <context ref="clj-string"  />
+        <context ref="clj-number"  />
+        <context ref="clj-char"    />
+        <context ref="clj-symbol"  />
+        <context ref="clj-keyword" />
+        <context ref="clj-regex"   />
+      </include>
+    </context>
+
+  </definitions>
+</language>
