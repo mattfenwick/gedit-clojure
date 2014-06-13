@@ -2,112 +2,100 @@
 
 <language id="clojure" _name="Clojure" version="2.0" _section="Sources">
   <metadata>
-    <property name="mimetypes">text/x-clojure;application/x-clojure</property> <!-- not sure about these -->
+    <property name="mimetypes">text/x-clojure;application/x-clojure</property>
     <property name="globs">*.clj</property>
     <property name="line-comment-start">;</property>
   </metadata>
 
-  <styles>
-    <style id="comment"           _name="Comment"               map-to="def:comment"/>
-    <style id="module-handler"    _name="Module Handler"        map-to="def:preprocessor"/>
-    <style id="keyword"           _name="Keyword"               map-to="def:keyword"/>
-    <style id="escaped-char"      _name="Escaped Character"     map-to="def:special-char"/>
-    <style id="multiline-string"  _name="Multiline string"      map-to="def:string"/>
-    <style id="builtin-constant"  _name="Builtin Constant"      map-to="def:special-constant"/>
-    <style id="builtin-function"  _name="Builtin Function"      map-to="def:builtin"/>
-    <style id="clj-ident"         _name="Identifier"            map-to="def:identifier"/>
+  <styles> <!-- these styles are chosen purely for their colors -->
+    <style id="comment"         _name="Comment"             map-to="def:comment"/>
+
+    <style id="clj-string"      _name="String"              map-to="def:string"/>
+    <style id="string-escape"   _name="String escape"       map-to="def:special-char"/>
+
+    <style id="clj-number"      _name="Number"              map-to="def:special-constant"/>
+    <style id="clj-char"        _name="Character"           map-to="def:constant"/>
+    <style id="clj-symbol"      _name="Symbol"              map-to="def:keyword"/>
+    <style id="clj-keyword"     _name="Keyword"             map-to="def:special-constant"/>
+
+    <style id="clj-regex"       _name="Regex"               map-to="def:string"/>
+    <style id="regex-escape"    _name="Regex escape"        map-to="def:special-char"/>
   </styles>
 
   <definitions>
     <context id="line-comment" style-ref="comment" end-at-line-end="true">
-      <start>;</start>
+      <start>(;|#!)</start>
       <include>
         <context ref="def:in-comment"/>
       </include>
     </context>
 
-    <context id="escaped-char" style-ref="escaped-char" extend-parent="true">
-      <match extended="true">
-        \\(                 # open
-        [\\"btnfr]        | # simple
-        u[0-9A-Fa-f]{4}   | # 16-bit hex value
-        [0-7]{1,3}          # octal
-        )
-      </match>
-    </context>
-
-    <context id="multiline-string" style-ref="multiline-string">
+    <context id="clj-string" style-ref="clj-string">
       <start>"</start>
       <end>"</end>
       <include>
-        <context ref="escaped-char"/>
+        <context id="string-escape" style-ref="string-escape" extend-parent="true">
+          <match extended="true">
+            \\(                 # open
+            [\\"btnfr]        | # simple
+            u[0-9A-Fa-f]{4}   | # 16-bit hex value
+            [0-7]{1,3}          # octal
+            )
+          </match>
+        </context>
       </include>
     </context>
+
+    <context id="clj-number" style-ref="clj-number">
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>\d[^\s\[\]\{\}\(\);\\"@~`\^,'%#]*</keyword>
+    </context>
+
+    <context id="clj-char" style-ref="clj-char">
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>\\.[^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
+    </context>
+
+    <context id="clj-symbol" style-ref="clj-symbol">
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>[^:\d\s,";@\^`~\(\)\[\]\{\}\\'#][^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
+    </context>
+
+    <context id="clj-keyword" style-ref="clj-keyword">
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>:[^\s\[\]\{\}\(\);\\"@~`\^,']+</keyword>
+    </context>
+
+    <context id="clj-regex" style-ref="clj-regex">
+      <start>#"</start>
+      <end>"</end>
+      <include>
+        <context id="regex-escape" style-ref="regex-escape" extend-parent="true">
+          <match extended="true">
+            \\(          # open
+            [\\"]        # just \ or " (ignoring internal syntax of regex)
+            )
+          </match>
+        </context>
+      </include>
+    </context>
+
 
     <context id="clojure">
       <include>
-        <context ref="multiline-string"/>
-
         <context ref="line-comment"/>
-
-        <context id="module-handler" style-ref="module-handler">
-          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-          <keyword>ns</keyword>
-          <keyword>use</keyword>
-          <keyword>require</keyword>
-        </context>
-
-        <context id="reserved" style-ref="keyword">
-          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-          <keyword>true</keyword>
-          <keyword>false</keyword>
-          <keyword>nil</keyword>
-        </context>
-
-        <context id="special" style-ref="builtin-constant">
-          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-          <keyword>def</keyword>
-          <keyword>if</keyword>
-          <keyword>let\*</keyword>
-          <keyword>loop\*</keyword>
-          <keyword>fn\*</keyword>
-        </context>
-
-        <context id="builtin-macro" style-ref="builtin-function">
-          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-          <keyword>defn</keyword>
-          <keyword>fn</keyword>
-          <keyword>let</keyword>
-          <keyword>loop</keyword>
-        </context>
-
-        <context id="builtin-function" style-ref="builtin-function">
-          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-          <keyword>type</keyword>
-          <keyword>apply</keyword>
-          <keyword>str</keyword>
-      <!-- also + -->
-        </context>
-
-        <context id="clj-keyword" style-ref="keyword">
-          <prefix>:</prefix>
-          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-          <keyword>[^\s\[\]\{\}\(\);\\"@~`\^,']+</keyword>
-        </context>
-
-        <context id="clj-ident" style-ref="clj-ident">
-          <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-          <keyword>[^\s,";@\^`~\(\)\[\]\{\}\\'#][^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
-        </context>
-
+        <context ref="clj-string"  />
+        <context ref="clj-number"  />
+        <context ref="clj-char"    />
+        <context ref="clj-symbol"  />
+        <context ref="clj-keyword" />
+        <context ref="clj-regex"   />
       </include>
     </context>
+
   </definitions>
 </language>
-
