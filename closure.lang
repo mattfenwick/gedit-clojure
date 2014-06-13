@@ -74,8 +74,8 @@
     </context>
 
     <context id="clj-arg" style-ref="argument">
-      <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+      <prefix></prefix>
+      <suffix></suffix>
       <keyword>%[^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
     </context>
 
