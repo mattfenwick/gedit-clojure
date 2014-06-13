@@ -25,7 +25,7 @@
   <definitions>
 
     <context id="clj-comment" style-ref="comment" end-at-line-end="true">
-      <start>;</start>
+      <start>(;|#!)</start>
       <include>
         <context ref="def:in-comment"/>
       </include>
