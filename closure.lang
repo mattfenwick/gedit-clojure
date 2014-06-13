@@ -17,6 +17,7 @@
     <style id="function"          _name="Builtin function"      map-to="def:builtin"/>
     <style id="macro"             _name="Macro"                 map-to="def:special-constant"/>
     <style id="ident"             _name="Identifier"            map-to="def:identifier"/>
+    <style id="argument"          _name="Argument"              map-to="def:special-constant"/>
   </styles>
 
   <definitions>
@@ -42,6 +43,12 @@
           </match>
         </context>
       </include>
+    </context>
+
+    <context id="clj-arg" style-ref="argument">
+      <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
+      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
+      <keyword>%[^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
     </context>
 
     <context id="clj-imports" style-ref="module-handler">
@@ -227,6 +234,7 @@
       <include>
         <context ref="clj-comment"/>
         <context ref="clj-string"/>
+        <context ref="clj-arg"/>
         <!-- char, number, regex, %-arg, reader macros -->
         <context ref="clj-imports"/>
         <context ref="clj-reserved"/>
