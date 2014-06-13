@@ -1,5 +1,7 @@
 # Clojure: syntax highlighting for the gedit text editor
 
+![screencap](screencap.png)
+
 This project includes two separate but related language files for
 Clojure syntax highlighting.
 
