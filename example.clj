@@ -11,6 +11,7 @@
 "
  "oopsy \" \\ \u1234 \n \01234
 "
+%1 %& #(%1 %&) %abc %123\abc
 (fn* fn fn* fn def)
 let*;
 loop*\
@@ -20,8 +21,9 @@ reify*@x
 do~
 if`
 clojure.core/import*,
-[fn*#{}]
-fn
+[fn*#{}] *4 *1 *2 *3 *e &
+fn  unquote unquote-splicing 
+(and (type (+ 1))) (var)
 fn;
 \a a \ta \newline[] \@
 (defn make-do
