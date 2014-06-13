@@ -26,6 +26,12 @@ On Fedora and CentOS, this is `/usr/share/gtksourceview-3.0/language-specs/`.
 Then, open up a file in gedit with a `.clj` extension!
 
 
+### License
+
+MIT.  Not really too concerned about this ... just don't take it and
+do something evil with it, then blame me.
+
+
 ### Useful links
 
 https://wiki.gnome.org/Projects/GtkSourceView
