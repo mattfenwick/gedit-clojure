@@ -19,6 +19,7 @@
     <style id="ident"             _name="Identifier"            map-to="def:identifier"/>
     <style id="argument"          _name="Argument"              map-to="def:special-constant"/>
     <style id="character"         _name="Character"             map-to="def:constant"/>
+    <style id="number"            _name="Number"                map-to="def:constant"/>
   </styles>
 
   <definitions>
@@ -58,6 +59,12 @@
           </match>
         </context>
       </include>
+    </context>
+
+    <context id="clj-number" style-ref="number">
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>\d[^\s\[\]\{\}\(\);\\"@~`\^,'%#]*</keyword>
     </context>
 
     <context id="clj-char" style-ref="character">
@@ -256,9 +263,10 @@
         <context ref="clj-comment"/>
         <context ref="clj-string"/>
         <context ref="clj-regex"/>
+        <context ref="clj-number"/>
         <context ref="clj-char"/>
         <context ref="clj-arg"/>
-        <!-- number, reader macros -->
+        <!-- reader macros -->
         <context ref="clj-imports"/>
         <context ref="clj-reserved"/>
         <context ref="clj-special"/>
