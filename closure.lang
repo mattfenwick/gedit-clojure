@@ -18,6 +18,7 @@
     <style id="macro"             _name="Macro"                 map-to="def:special-constant"/>
     <style id="ident"             _name="Identifier"            map-to="def:identifier"/>
     <style id="argument"          _name="Argument"              map-to="def:special-constant"/>
+    <style id="character"         _name="Character"             map-to="def:constant"/>
   </styles>
 
   <definitions>
@@ -43,6 +44,26 @@
           </match>
         </context>
       </include>
+    </context>
+
+    <context id="clj-regex" style-ref="string">
+      <start>#"</start>
+      <end>"</end>
+      <include>
+        <context id="regex-escape" style-ref="escaped-char" extend-parent="true">
+          <match extended="true">
+            \\(          # open
+            [\\"]        # just \ or " (ignoring internal syntax of regex)
+            )
+          </match>
+        </context>
+      </include>
+    </context>
+
+    <context id="clj-char" style-ref="character">
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>\\.[^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
     </context>
 
     <context id="clj-arg" style-ref="argument">
@@ -234,8 +255,10 @@
       <include>
         <context ref="clj-comment"/>
         <context ref="clj-string"/>
+        <context ref="clj-regex"/>
+        <context ref="clj-char"/>
         <context ref="clj-arg"/>
-        <!-- char, number, regex, %-arg, reader macros -->
+        <!-- number, reader macros -->
         <context ref="clj-imports"/>
         <context ref="clj-reserved"/>
         <context ref="clj-special"/>
