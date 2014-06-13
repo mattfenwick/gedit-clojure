@@ -13,8 +13,9 @@
     <style id="keyword"           _name="Keyword"               map-to="def:keyword"/>
     <style id="escaped-char"      _name="Escaped Character"     map-to="def:special-char"/>
     <style id="multiline-string"  _name="Multiline string"      map-to="def:string"/>
-    <style id="builtin-constant"  _name="Builtin Constant"      map-to="def:special-constant"/>
-    <style id="builtin-function"  _name="Builtin Function"      map-to="def:builtin"/>
+    <style id="special"           _name="Special form"          map-to="def:special-constant"/>
+    <style id="function"          _name="Builtin function"      map-to="def:builtin"/>
+    <style id="macro"             _name="Macro"                 map-to="def:special-constant"/>
     <style id="clj-ident"         _name="Identifier"            map-to="def:identifier"/>
   </styles>
 
@@ -66,7 +67,7 @@
           <keyword>nil</keyword>
         </context>
 
-        <context id="special" style-ref="builtin-constant">
+        <context id="special" style-ref="special">
           <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
           <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>def</keyword>
@@ -92,16 +93,79 @@
           <keyword>clojure\.core/import\*</keyword>
         </context>
 
-        <context id="builtin-macro" style-ref="builtin-function">
+        <context id="macro" style-ref="macro">
           <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
           <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>defn</keyword>
+          <keyword>defmacro</keyword>
+          <keyword>when</keyword>
+          <keyword>when-not</keyword>
+          <keyword>cond</keyword>
+          <keyword>lazy-seq</keyword>
+          <keyword>delay</keyword>
+          <keyword>if-not</keyword>
+          <keyword>and</keyword>
+          <keyword>or</keyword>
+          <keyword>locking</keyword>
+          <keyword>\.\.</keyword>
+          <keyword>-&lt;</keyword>
           <keyword>fn</keyword>
           <keyword>let</keyword>
           <keyword>loop</keyword>
+          <keyword>-&lt;&lt;</keyword>
+          <keyword>defmulti</keyword>
+          <keyword>defmethod</keyword>
+          <keyword>if-let</keyword>
+          <keyword>when-let</keyword>
+          <keyword>if-some</keyword>
+          <keyword>when-some</keyword>
+          <keyword>binding</keyword>
+          <keyword>with-bindings</keyword>
+          <keyword>bound-fn</keyword>
+          <keyword>sync</keyword>
+          <keyword>io!</keyword>
+          <keyword>dotimes</keyword>
+          <keyword>declare</keyword>
+          <keyword>doseq</keyword>
+          <keyword>import</keyword>
+          <keyword>with-open</keyword>
+          <keyword>doto</keyword>
+          <keyword>memfn</keyword>
+          <keyword>time</keyword>
+          <keyword>defstruct</keyword>
+          <keyword>with-local-vars</keyword>
+          <keyword>when-first</keyword>
+          <keyword>lazy-cat</keyword>
+          <keyword>for</keyword>
+          <keyword>comment</keyword>
+          <keyword>with-out-str</keyword>
+          <keyword>with-in-str</keyword>
+          <keyword>assert</keyword>
+          <keyword>defn-</keyword>
+          <keyword>dosync</keyword>
+          <keyword>with-precision</keyword>
+          <keyword>definline</keyword>
+          <keyword>amap</keyword>
+          <keyword>areduce</keyword>
+          <keyword>with-loading-context</keyword>
+          <keyword>ns</keyword>
+          <keyword>refer-clojure</keyword>
+          <keyword>defonce</keyword>
+          <keyword>while</keyword>
+          <keyword>condp</keyword>
+          <keyword>letfn</keyword>
+          <keyword>case</keyword>
+          <keyword>future</keyword>
+          <keyword>pvalues</keyword>
+          <keyword>with-redefs</keyword>
+          <keyword>cond-&gt;</keyword>
+          <keyword>cond-&gt;&gt;</keyword>
+          <keyword>as-&gt;</keyword>
+          <keyword>some-&gt;</keyword>
+          <keyword>some-&gt;&gt;</keyword>
         </context>
 
-        <context id="builtin-function" style-ref="builtin-function">
+        <context id="function" style-ref="function">
           <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
           <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>type</keyword>
@@ -109,6 +173,8 @@
           <keyword>str</keyword>
       <!-- also + -->
         </context>
+
+<!--        <context id="other-special" ...> unquote, unquote-splicing -->
 
         <context id="clj-keyword" style-ref="keyword">
           <prefix>:</prefix>
