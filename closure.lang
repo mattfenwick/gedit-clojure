@@ -216,7 +216,6 @@
       <keyword>apply</keyword>
       <keyword>map</keyword>
       <keyword>str</keyword>
-      <keyword>\+</keyword>
       <keyword>last</keyword>
       <keyword>butlast</keyword>
       <keyword>list</keyword>
@@ -243,6 +242,86 @@
       <keyword>sigs</keyword>
       <keyword>not-every\?</keyword>
       <keyword>not-any\?</keyword>
+      <keyword>cast</keyword>
+      <keyword>to-array</keyword>
+      <keyword>vector</keyword>
+      <keyword>vec</keyword>
+      <keyword>hash-map</keyword>
+      <keyword>hash-set</keyword>
+      <keyword>sorted-map</keyword>
+      <keyword>sorted-map-by</keyword>
+      <keyword>sorted-set</keyword>
+      <keyword>sorted-set-by</keyword>
+      <keyword>nil\?</keyword>
+      <keyword>false\?</keyword>
+      <keyword>true\?</keyword>
+      <keyword>not</keyword>
+      <keyword>some\?</keyword>
+      <keyword>symbol\?</keyword>
+      <keyword>keyword\?</keyword>
+      <keyword>symbol</keyword>
+      <keyword>gensym</keyword>
+      <keyword>keyword</keyword>
+      <keyword>find-keyword</keyword>
+      <keyword>spread</keyword>
+      <keyword>list\*</keyword>
+      <keyword>vary-meta</keyword>
+      <keyword>chunk-buffer</keyword>
+      <keyword>chunk</keyword>
+      <keyword>chunk-first</keyword>
+      <keyword>chunk-rest</keyword>
+      <keyword>chunk-next</keyword>
+      <keyword>chunk-cons</keyword>
+      <keyword>chunked-seq\?</keyword>
+      <keyword>concat</keyword>
+      <keyword>delay\?</keyword>
+      <keyword>force</keyword>
+      <keyword>identical\?</keyword>
+      <keyword>=</keyword>
+      <keyword>not=</keyword>
+      <keyword>compare</keyword>
+      <keyword>zero\?</keyword>
+      <keyword>count</keyword>
+      <keyword>int</keyword>
+      <keyword>nth</keyword>
+      <keyword>&lt;</keyword>
+      <keyword>inc'</keyword>
+      <keyword>inc</keyword>
+      <keyword>reverse</keyword>
+      <keyword>\+'</keyword>
+      <keyword>\+</keyword>
+      <keyword>\*'</keyword>
+      <keyword>\*</keyword>
+      <keyword>\/</keyword>
+      <keyword>-'</keyword>
+      <keyword>-</keyword>
+      <keyword>&lt;=</keyword>
+      <keyword>&gt;</keyword>
+      <keyword>&gt;=</keyword>
+      <keyword>==</keyword>
+      <keyword>max</keyword>
+      <keyword>min</keyword>
+      <keyword>dec'</keyword>
+      <keyword>dec</keyword>
+      <keyword>unchecked-inc-int</keyword>
+      <keyword>unchecked-inc</keyword>
+      <keyword>unchecked-dec-int</keyword>
+      <keyword>unchecked-dec</keyword>
+      <keyword>unchecked-negate-int</keyword>
+      <keyword>unchecked-negate</keyword>
+      <keyword>unchecked-add-int</keyword>
+      <keyword>unchecked-add</keyword>
+      <keyword>unchecked-subtract-int</keyword>
+      <keyword>unchecked-subtract</keyword>
+      <keyword>unchecked-multiply-int</keyword>
+      <keyword>unchecked-multiply</keyword>
+      <keyword>unchecked-divide-int</keyword>
+      <keyword>unchecked-remainder-int</keyword>
+      <keyword>pos\?</keyword>
+      <keyword>neg\?</keyword>
+      <keyword>quot</keyword>
+      <keyword>rem</keyword>
+      <keyword>rationalize</keyword>
     </context>
 
     <context id="clj-keyword" style-ref="keyword">
