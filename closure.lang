@@ -24,7 +24,7 @@
 
   <definitions>
     <context id="line-comment" style-ref="comment" end-at-line-end="true">
-      <start>;</start>
+      <start>(;|#!)</start>
       <include>
         <context ref="def:in-comment"/>
       </include>
@@ -46,30 +46,28 @@
       </include>
     </context>
 
-    <!-- the follow restrictions seem to be unnecessary since there's no possibility of ambiguity -->
-
     <context id="clj-number" style-ref="clj-number">
-      <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-<!--      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix> -->
+      <prefix></prefix>
+      <suffix></suffix>
       <keyword>\d[^\s\[\]\{\}\(\);\\"@~`\^,'%#]*</keyword>
     </context>
 
     <context id="clj-char" style-ref="clj-char">
-      <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-      <keyword>\\[^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>\\.[^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
     </context>
 
     <context id="clj-symbol" style-ref="clj-symbol">
-      <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-          <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-      <keyword>[^\d\s,";@\^`~\(\)\[\]\{\}\\'#][^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>[^:\d\s,";@\^`~\(\)\[\]\{\}\\'#][^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
     </context>
 
     <context id="clj-keyword" style-ref="clj-keyword">
-      <prefix>:</prefix>
-      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-      <keyword>[^\s\[\]\{\}\(\);\\"@~`\^,']+</keyword>
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>:[^\s\[\]\{\}\(\);\\"@~`\^,']+</keyword>
     </context>
 
     <context id="clj-regex" style-ref="clj-regex">

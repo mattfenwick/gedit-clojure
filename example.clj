@@ -1,8 +1,10 @@
 (ns clojee.core)
-3 4 5 3.2 3/4 032234abc/2424["" abc
-8675#309
+3 4 5 3.2 3/4 032234abc/242&4_&$["" abc
+8675%#309 ; number, symbol
+8675\u ; number, char
+'[03'%a'b] #! uh-oh no no this is a comment!
 \too bad 3so "sad"
-'[""123""abc""\\abc]
+'[""123""abc""\\abc] \[abc true nil false #f ; not sure what #f is
 ; syntax
 ;   {let* [a v1 b v2 c v3] form}
 ;       warning: shadowing outer variable
