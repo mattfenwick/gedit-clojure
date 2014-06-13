@@ -1,6 +1,6 @@
 # Clojure: syntax highlighting for the gedit text editor
 
-![screencap](screencap.png)
+![clojure](clojure.png)
 
 This project includes two separate but related language files for
 Clojure syntax highlighting.
@@ -14,6 +14,10 @@ rejected as invalid (such as `8abc` or `\abc`).
 
 The second -- `closure.lang` -- is intended to provide more intelligent
 (and less obnoxious w.r.t. colors) feedback.  However, it's still in progress.
+A quick preview:
+
+![closure](closure.png)
+
 
 The syntax definitions are taken from [here](https://github.com/mattfenwick/clolint-js).
 
