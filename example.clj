@@ -12,14 +12,14 @@
  "oopsy \" \\ \u1234 \n \01234
 "
 (fn* fn fn* fn def)
-fn*;
-fn*\
-fn*"" nil
-fn*@x
-fn*^
-fn*~
-fn*`
-fn*,
+let*;
+loop*\
+letfn*"" nil
+reify*@x
+.^
+do~
+if`
+clojure.core/import*,
 [fn*#{}]
 fn
 fn;

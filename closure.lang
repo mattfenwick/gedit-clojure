@@ -71,9 +71,25 @@
           <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
           <keyword>def</keyword>
           <keyword>if</keyword>
+          <keyword>do</keyword>
+          <keyword>quote</keyword>
+          <keyword>var</keyword>
+          <keyword>recur</keyword>
+          <keyword>throw</keyword>
+          <keyword>try</keyword>
+          <keyword>monitor-enter</keyword>
+          <keyword>monitor-exit</keyword>
+          <keyword>\.</keyword>
+          <keyword>new</keyword>
+          <keyword>set!</keyword>
+          <keyword>fn\*</keyword>
           <keyword>let\*</keyword>
           <keyword>loop\*</keyword>
-          <keyword>fn\*</keyword>
+          <keyword>letfn\*</keyword>
+          <keyword>case\*</keyword>
+          <keyword>deftype\*</keyword>
+          <keyword>reify\*</keyword>
+          <keyword>clojure\.core/import\*</keyword>
         </context>
 
         <context id="builtin-macro" style-ref="builtin-function">
