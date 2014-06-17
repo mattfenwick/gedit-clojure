@@ -9,7 +9,6 @@
 
   <styles>
     <style id="comment"           _name="Comment"               map-to="def:comment"/>
-    <style id="module-handler"    _name="Module Handler"        map-to="def:preprocessor"/>
     <style id="keyword"           _name="Keyword"               map-to="def:constant"/>
     <style id="escaped-char"      _name="Escaped Character"     map-to="def:special-char"/>
     <style id="string"            _name="Multiline string"      map-to="def:string"/>
@@ -77,14 +76,6 @@
       <prefix></prefix>
       <suffix></suffix>
       <keyword>%[^\s,";@\^`~\(\)\[\]\{\}\\]*</keyword>
-    </context>
-
-    <context id="clj-imports" style-ref="module-handler">
-      <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
-      <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-      <keyword>ns</keyword>
-      <keyword>use</keyword>
-      <keyword>require</keyword>
     </context>
 
     <context id="clj-reserved" style-ref="keyword">
@@ -678,7 +669,6 @@
         <context ref="clj-char"/>
         <context ref="clj-arg"/>
         <!-- reader macros -->
-        <context ref="clj-imports"/>
         <context ref="clj-reserved"/>
         <context ref="clj-special"/>
         <context ref="other-builtin"/>
