@@ -152,11 +152,11 @@
       <keyword>or</keyword>
       <keyword>locking</keyword>
       <keyword>\.\.</keyword>
-      <keyword>-&lt;</keyword>
+      <keyword>-&gt;</keyword>
       <keyword>fn</keyword>
       <keyword>let</keyword>
       <keyword>loop</keyword>
-      <keyword>-&lt;&lt;</keyword>
+      <keyword>-&gt;&gt;</keyword>
       <keyword>defmulti</keyword>
       <keyword>defmethod</keyword>
       <keyword>if-let</keyword>
