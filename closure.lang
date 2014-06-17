@@ -140,73 +140,74 @@
     <context id="clj-macro" style-ref="macro">
       <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
       <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
-      <keyword>defn</keyword>
-      <keyword>defmacro</keyword>
-      <keyword>when</keyword>
-      <keyword>when-not</keyword>
-      <keyword>cond</keyword>
-      <keyword>lazy-seq</keyword>
-      <keyword>delay</keyword>
-      <keyword>if-not</keyword>
-      <keyword>and</keyword>
-      <keyword>or</keyword>
-      <keyword>locking</keyword>
-      <keyword>\.\.</keyword>
       <keyword>-&gt;</keyword>
-      <keyword>fn</keyword>
-      <keyword>let</keyword>
-      <keyword>loop</keyword>
       <keyword>-&gt;&gt;</keyword>
-      <keyword>defmulti</keyword>
-      <keyword>defmethod</keyword>
-      <keyword>if-let</keyword>
-      <keyword>when-let</keyword>
-      <keyword>if-some</keyword>
-      <keyword>when-some</keyword>
-      <keyword>binding</keyword>
-      <keyword>with-bindings</keyword>
-      <keyword>bound-fn</keyword>
-      <keyword>sync</keyword>
-      <keyword>io!</keyword>
-      <keyword>dotimes</keyword>
-      <keyword>declare</keyword>
-      <keyword>doseq</keyword>
-      <keyword>import</keyword>
-      <keyword>with-open</keyword>
-      <keyword>doto</keyword>
-      <keyword>memfn</keyword>
-      <keyword>time</keyword>
-      <keyword>defstruct</keyword>
-      <keyword>with-local-vars</keyword>
-      <keyword>when-first</keyword>
-      <keyword>lazy-cat</keyword>
-      <keyword>for</keyword>
-      <keyword>comment</keyword>
-      <keyword>with-out-str</keyword>
-      <keyword>with-in-str</keyword>
-      <keyword>assert</keyword>
-      <keyword>defn-</keyword>
-      <keyword>dosync</keyword>
-      <keyword>with-precision</keyword>
-      <keyword>definline</keyword>
+      <keyword>\.\.</keyword>
+      <keyword>add-doc-and-meta</keyword>
       <keyword>amap</keyword>
+      <keyword>and</keyword>
       <keyword>areduce</keyword>
-      <keyword>with-loading-context</keyword>
-      <keyword>ns</keyword>
-      <keyword>refer-clojure</keyword>
-      <keyword>defonce</keyword>
-      <keyword>while</keyword>
-      <keyword>condp</keyword>
-      <keyword>letfn</keyword>
+      <keyword>as-&gt;</keyword>
+      <keyword>assert</keyword>
+      <keyword>binding</keyword>
+      <keyword>bound-fn</keyword>
       <keyword>case</keyword>
-      <keyword>future</keyword>
-      <keyword>pvalues</keyword>
-      <keyword>with-redefs</keyword>
+      <keyword>comment</keyword>
+      <keyword>cond</keyword>
       <keyword>cond-&gt;</keyword>
       <keyword>cond-&gt;&gt;</keyword>
-      <keyword>as-&gt;</keyword>
+      <keyword>condp</keyword>
+      <keyword>declare</keyword>
+      <keyword>definline</keyword>
+      <keyword>defmacro</keyword>
+      <keyword>defmethod</keyword>
+      <keyword>defmulti</keyword>
+      <keyword>defn</keyword>
+      <keyword>defn-</keyword>
+      <keyword>defonce</keyword>
+      <keyword>defstruct</keyword>
+      <keyword>delay</keyword>
+      <keyword>doseq</keyword>
+      <keyword>dosync</keyword>
+      <keyword>dotimes</keyword>
+      <keyword>doto</keyword>
+      <keyword>fn</keyword>
+      <keyword>for</keyword>
+      <keyword>future</keyword>
+      <keyword>if-let</keyword>
+      <keyword>if-not</keyword>
+      <keyword>if-some</keyword>
+      <keyword>import</keyword>
+      <keyword>io!</keyword>
+      <keyword>lazy-cat</keyword>
+      <keyword>lazy-seq</keyword>
+      <keyword>let</keyword>
+      <keyword>letfn</keyword>
+      <keyword>locking</keyword>
+      <keyword>loop</keyword>
+      <keyword>memfn</keyword>
+      <keyword>ns</keyword>
+      <keyword>or</keyword>
+      <keyword>pvalues</keyword>
+      <keyword>refer-clojure</keyword>
       <keyword>some-&gt;</keyword>
       <keyword>some-&gt;&gt;</keyword>
+      <keyword>sync</keyword>
+      <keyword>time</keyword>
+      <keyword>when</keyword>
+      <keyword>when-first</keyword>
+      <keyword>when-let</keyword>
+      <keyword>when-not</keyword>
+      <keyword>when-some</keyword>
+      <keyword>while</keyword>
+      <keyword>with-bindings</keyword>
+      <keyword>with-in-str</keyword>
+      <keyword>with-loading-context</keyword>
+      <keyword>with-local-vars</keyword>
+      <keyword>with-open</keyword>
+      <keyword>with-out-str</keyword>
+      <keyword>with-precision</keyword>
+      <keyword>with-redefs</keyword>
     </context>
 
     <context id="clj-function" style-ref="function">
