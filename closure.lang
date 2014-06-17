@@ -96,6 +96,7 @@
       <keyword>var</keyword>
       <keyword>recur</keyword>
       <keyword>throw</keyword>
+      <keyword>catch</keyword>
       <keyword>try</keyword>
       <keyword>monitor-enter</keyword>
       <keyword>monitor-exit</keyword>
