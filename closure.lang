@@ -137,7 +137,6 @@
       <keyword>unquote-splicing</keyword>
     </context>
 
-
     <context id="clj-macro" style-ref="macro">
       <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
       <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
@@ -211,10 +210,6 @@
       <keyword>with-redefs</keyword>
     </context>
 
-
-
-
-
     <context id="clj-function" style-ref="function">
       <prefix>(?&lt;![^\s\[\]\{\}\(\);\\"@~`\^,'])</prefix>
       <suffix>(?![^\s\[\]\{\}\(\);\\"@~`\^,'])</suffix>
@@ -283,7 +278,7 @@
       <keyword>bytes</keyword>
       <keyword>cast</keyword>
       <keyword>char</keyword>
-      <keyword>char?</keyword>
+      <keyword>char\?</keyword>
       <keyword>char-array</keyword>
       <keyword>chars</keyword>
       <keyword>chunk</keyword>
@@ -397,7 +392,7 @@
       <keyword>ifn\?</keyword>
       <keyword>inc</keyword>
       <keyword>inc'</keyword>
-      <keyword>instance?</keyword>
+      <keyword>instance\?</keyword>
       <keyword>int</keyword>
       <keyword>int-array</keyword>
       <keyword>ints</keyword>
@@ -435,7 +430,7 @@
       <keyword>make-hierarchy</keyword>
       <keyword>map</keyword>
       <keyword>map-indexed</keyword>
-      <keyword>map?</keyword>
+      <keyword>map\?</keyword>
       <keyword>mapcat</keyword>
       <keyword>mapv</keyword>
       <keyword>max</keyword>
@@ -458,9 +453,9 @@
       <keyword>nil\?</keyword>
       <keyword>nnext</keyword>
       <keyword>not</keyword>
-      <keyword>not-any?</keyword>
+      <keyword>not-any\?</keyword>
       <keyword>not-empty</keyword>
-      <keyword>not-every?</keyword>
+      <keyword>not-every\?</keyword>
       <keyword>not=</keyword>
       <keyword>ns-aliases</keyword>
       <keyword>ns-imports</keyword>
@@ -563,7 +558,7 @@
       <keyword>send-off</keyword>
       <keyword>send-via</keyword>
       <keyword>seq</keyword>
-      <keyword>seq?</keyword>
+      <keyword>seq\?</keyword>
       <keyword>seque</keyword>
       <keyword>sequence</keyword>
       <keyword>sequential\?</keyword>
@@ -595,7 +590,7 @@
       <keyword>split-at</keyword>
       <keyword>split-with</keyword>
       <keyword>str</keyword>
-      <keyword>string?</keyword>
+      <keyword>string\?</keyword>
       <keyword>struct</keyword>
       <keyword>struct-map</keyword>
       <keyword>subs</keyword>
@@ -652,7 +647,7 @@
       <keyword>vary-meta</keyword>
       <keyword>vec</keyword>
       <keyword>vector</keyword>
-      <keyword>vector?</keyword>
+      <keyword>vector\?</keyword>
       <keyword>with-bindings\*</keyword>
       <keyword>with-meta</keyword>
       <keyword>with-redefs-fn</keyword>
