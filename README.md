@@ -2,38 +2,26 @@
 
 ![clojure](clojure.png)
 
-This project includes two separate but related language files for
-Clojure syntax highlighting.
-
-The first -- `clojure.lang` -- is very simple: it only recognizes tokens
-based on their type (number, string, regex, char, symbol, keyword, comment,
-and everything else).  It is based on the 
-[official Clojure parser](https://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/LispReader.java).
-The goal is to show the tokenization -- even when the token would later be
-rejected as invalid (such as `8abc` or `\abc`).
-
-The second -- `closure.lang` -- is intended to provide more intelligent
-(and less obnoxious w.r.t. colors) feedback.  However, it's still in progress.
-A quick preview:
-
-![closure](closure.png)
-
-
+This project includes a language file for Clojure syntax highlighting in gedit.
+It is based on the [official Clojure parser]
+(https://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/LispReader.java).
 The syntax definitions are taken from [here](https://github.com/mattfenwick/clolint-js).
+
 
 
 ### Installation
 
-Just put the .lang file(s) where gedit can find them.
+Just put the `clojure.lang` file where gedit can find them.
 On Fedora and CentOS, this is `/usr/share/gtksourceview-3.0/language-specs/`.
 
 Then, open up a file in gedit with a `.clj` extension!
 
 
+
 ### License
 
-MIT.  Not really too concerned about this ... just don't take it and
-do something evil with it, then blame me.
+MIT.  Also, don't use it for evil.
+
 
 
 ### Useful links
