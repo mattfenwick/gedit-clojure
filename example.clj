@@ -8,7 +8,7 @@
 ; syntax
 ;   {let* [a v1 b v2 c v3] form}
 #"oopsy \" \\ \u1234 \n \01234
-"
+" *e *1 *file* 123 \newline 
  "oopsy \" \\ \u1234 \n \01234
 "
 %1 %& #(%1 %&) %abc %123\abc
