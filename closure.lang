@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<language id="clojure" _name="Clojure" version="2.0" _section="Sources">
+<language id="closure" _name="Closure" version="2.0" _section="Sources">
   <metadata>
     <property name="mimetypes">text/x-clojure;application/x-clojure</property>
     <property name="globs">*.clj</property>
@@ -85,7 +85,7 @@
     </context>
 
 
-    <context id="clojure">
+    <context id="closure">
       <include>
         <context ref="line-comment"/>
         <context ref="clj-string"  />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<language id="closure" _name="Closure" version="2.0" _section="Sources">
+<language id="clojure" _name="Clojure" version="2.0" _section="Sources">
   <metadata>
     <property name="mimetypes">text/x-clojure;application/x-clojure</property> <!-- not sure about these -->
     <property name="globs">*.clj</property>
@@ -662,7 +662,7 @@
     </context>
 
 
-    <context id="closure">
+    <context id="clojure">
       <include>
         <context ref="clj-comment"/>
         <context ref="clj-string"/>
@@ -670,7 +670,7 @@
         <context ref="clj-number"/>
         <context ref="clj-char"/>
         <context ref="clj-arg"/>
-        <!-- reader macros -->
+        <!-- missing some reader macros -->
         <context ref="clj-reserved"/>
         <context ref="clj-special"/>
         <context ref="other-builtin"/>
