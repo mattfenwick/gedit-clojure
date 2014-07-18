@@ -123,6 +123,7 @@
       <keyword>\*data-readers\*</keyword>
       <keyword>\*default-data-reader-fn\*</keyword>
       <keyword>\*e</keyword>
+      <keyword>\*file\*</keyword>
       <keyword>&amp;</keyword>
       <keyword>default-data-readers</keyword>
       <keyword>unquote</keyword>
