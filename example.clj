@@ -1,10 +1,12 @@
 (ns clojee.core)
+5421 -5421 +5421 +3/0 ++3/x -3.14 3.14 --3.14
+xyz +2 ++2 -8 --8 -4 -+4 +-4
 3 4 5 3.2 3/4 032234abc/242&4_&$["" abc
 8675%#309 ; number, symbol
 8675\u ; number, char
 '[03'%a'b] #! uh-oh no no this is a comment! 8676
 \too bad 3so "sad"
-'[""123""abc""\\abc] \[abc true nil false #f ; not sure what #f is
+'[""123""abc""\\abc] \[abc true nil false f# #f ; not sure what #f is
 ; syntax
 ;   {let* [a v1 b v2 c v3] form}
 #"oopsy \" \\ \u1234 \n \01234

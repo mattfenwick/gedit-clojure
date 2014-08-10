@@ -63,7 +63,7 @@
     <context id="clj-number" style-ref="number">
       <prefix></prefix>
       <suffix></suffix>
-      <keyword>\d[^\s\[\]\{\}\(\);\\"@~`\^,'%#]*</keyword>
+      <keyword>[\-\+]?\d[^\s\[\]\{\}\(\);\\"@~`\^,'%#]*</keyword>
     </context>
 
     <context id="clj-char" style-ref="character">
