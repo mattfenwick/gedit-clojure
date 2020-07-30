@@ -3,8 +3,7 @@
 ![clojure](clojure.png)
 
 This project includes a language file for Clojure syntax highlighting in gedit.
-It is based on the [official Clojure parser]
-(https://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/LispReader.java).
+It is based on the [official Clojure parser](https://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/LispReader.java).
 The syntax definitions are taken from [here](https://github.com/mattfenwick/clolint-js).
 
 
